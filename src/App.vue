@@ -15,8 +15,8 @@ import { ref } from 'vue';
 
 <template>
   <HeaderComponent></HeaderComponent>
-  <h1 :id="myId">Hola a todos!</h1> <!--v-bind:id="myId" = :id="myId"-->
-  <input type="text" :value="myValue"> <!--v-bindcrear reactividad"-->
+  <h1>{{ myValue}}</h1> <!--v-bind:id="myId" = :id="myId"-->
+  <input type="text" v-model="myValue"> <!--v-bindcrear reactividad"-->
   <h2 @click="addOne">Contador {{ number }}</h2>
 </template>
 
