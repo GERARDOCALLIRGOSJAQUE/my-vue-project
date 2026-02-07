@@ -9,12 +9,14 @@ import { ref } from 'vue';
   const addOne = () => {
     number.value++;
   };
-  
+  const myId = 'patata';
+  const myValue = ref('patata');
 </script>
 
 <template>
   <HeaderComponent></HeaderComponent>
-  <h1 class="title">Hola a todos!</h1>
+  <h1 :id="myId">Hola a todos!</h1> <!--v-bind:id="myId" = :id="myId"-->
+  <input type="text" :value="myValue"> <!--v-bindcrear reactividad"-->
   <h2 @click="addOne">Contador {{ number }}</h2>
 </template>
 
