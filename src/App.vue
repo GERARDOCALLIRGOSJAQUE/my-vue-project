@@ -2,18 +2,17 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import { ref } from 'vue';
 import ChildComponent from './components/ChildComponent.vue';
+const displayName = ref('');
+const setName = (name) => {
+  displayName.value = name;
+};
 
-  const text = "Info desde variable padre";
-  const person = {
-    sex: "hombre",
-    age: 30
-  }
 </script>
 
 <template>
   <h1>Renderizado de lista | v-for</h1>
-  <ChildComponent :msg="text" :person="person"></ChildComponent>
-  <ChildComponent msg="Otro mensaje" ></ChildComponent>
+  <h2>Hola {{ displayName }}</h2>
+  <ChildComponent @login="setName" ></ChildComponent>
 </template>
 
 <style scoped>
