@@ -1,24 +1,18 @@
 <script setup>
+import { computed, ref } from 'vue';
 import ChildComponent from './components/ChildComponent.vue';
+const userName = ref('Juan');
+const nameLength = computed(() => {
+  return userName.value.length;
+});
 
 </script>
 
 <template>
-  <h1>Slots</h1><!--Son una forma de transferir info de un padre aun hijo -->
-  <h2>Este es el componente padre</h2>
-  <ChildComponent>
-    <template v-slot:top>
-      <h3>Contenido desde el componente padre como slot</h3>
-    </template>
-    
-  </ChildComponent>
-  <ChildComponent>
-    <template v-slot:bottom>
-      <p>Lorem ips</p>
-      <p>jnded iedie euded o</p>
-    </template>
-    
-  </ChildComponent>
+  <h1>Computed | Propiedades computadas</h1><!--Son una forma de transferir info de un padre aun hijo -->
+  <input type="text" v-model="userName">
+  <h2>Hola {{ userName }}</h2>
+  <h3>Tu nombre tiene {{ nameLength }} letras</h3>
   
 </template>
 
