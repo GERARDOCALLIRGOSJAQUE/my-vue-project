@@ -1,19 +1,29 @@
 <script setup>
-import { computed, ref } from 'vue';
-import ChildComponent from './components/ChildComponent.vue';
-const userName = ref('Juan');
-const nameLength = computed(() => {
-  return userName.value.length;
-});
+import { ref, watch, watchEffect } from "vue";
 
+//const userName = ref({name: "Adrián"});
+const userName = ref("Adrián");
+const setName = () => { 
+  userName.value = "Maria";
+  };
+
+  /*watch(userName, 
+  (newValue, oldValue) => {
+    console.log("User name modified");
+  }, {
+    immediate: true,
+    deep: true
+  })*/
+ watchEffect(() => {
+    console.log("User name modified to: ", userName.value);
+  })
 </script>
 
 <template>
-  <h1>Computed | Propiedades computadas</h1><!--Son una forma de transferir info de un padre aun hijo -->
-  <input type="text" v-model="userName">
+  <h1>Watch | Vigilancia de cambios</h1>
   <h2>Hola {{ userName }}</h2>
-  <h3>Tu nombre tiene {{ nameLength }} letras</h3>
-  
+  <input type="text" v-model="userName">
+  <button @click="setName">Cambiar nombre</button>
 </template>
 
 <style scoped>
